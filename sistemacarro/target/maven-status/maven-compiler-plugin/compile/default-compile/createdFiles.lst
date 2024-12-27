@@ -1,0 +1,12 @@
+com\carros\models\Carro.class
+com\carros\SistemaCarroApplication.class
+com\carros\models\Modelo.class
+com\carros\repositories\ModeloRepository.class
+com\carros\controllers\CarroController.class
+com\carros\controllers\ModeloController.class
+com\carros\models\StatusDisponibilidade.class
+com\carros\repositories\MarcaRepository.class
+com\carros\repositories\CarroRepository.class
+com\carros\config\WebConfig.class
+com\carros\models\Marca.class
+com\carros\controllers\MarcaController.class
