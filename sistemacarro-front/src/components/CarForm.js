@@ -89,7 +89,6 @@ export default function CarForm() {
     };
 
     const formatCarData = (data) => {
-        // Formata os dados de acordo com a estrutura esperada pelo backend
         const formattedData = {
             modelo: {
                 id: parseInt(data.modelo)
@@ -101,7 +100,6 @@ export default function CarForm() {
             statusDisponibilidade: data.disponivel ? 'Disponível' : 'Indisponível'
         };
 
-        // Adiciona urlImagem apenas se existir
         if (data.urlImagem && data.urlImagem.trim()) {
             formattedData.urlImagem = data.urlImagem.trim();
         }
@@ -116,7 +114,6 @@ export default function CarForm() {
         try {
             setLoading(true);
 
-            // Validação básica
             if (!formData.modelo || !formData.ano || !formData.cor || !formData.preco) {
                 alert('Por favor, preencha todos os campos obrigatórios');
                 return;
@@ -124,7 +121,6 @@ export default function CarForm() {
 
             const carData = formatCarData(formData);
 
-            // Log detalhado antes do envio
             console.log('Tentando criar carro com os dados:', {
                 modeloSelecionado: models.find(m => m.id === parseInt(formData.modelo))?.nome,
                 ...carData
@@ -133,7 +129,6 @@ export default function CarForm() {
             const response = await carrosService.create(carData);
             console.log('Resposta do servidor:', response.data);
 
-            // Reseta o formulário
             setFormData({
                 marca: '',
                 modelo: '',
@@ -160,7 +155,6 @@ export default function CarForm() {
         }
     };
 
-    // Filtrar modelos pela marca selecionada
     const filteredModels = formData.marca
         ? models.filter(model => model.marca.id === parseInt(formData.marca))
         : models;
